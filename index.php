@@ -21,7 +21,7 @@
 				echo '<div class="container">
 						<form class="px-4 py-3" action="/signin.php" method="post">
 							<div class="input-group mb-3">
-								<input type="text" class="form-control" value="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1"><br>
+								<input type="text" class="form-control" name="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1"><br>
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</form>
