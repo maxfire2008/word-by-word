@@ -18,9 +18,9 @@ if (isset($_POST['userToken'])) {
 	$resultArray = $result->fetch_assoc();
 	setcookie("user_token",$_POST['userToken']);
 	console.log(implode(" ",$resultArray));
-	foreach ($resultArray as item) {
+	/*foreach ($resultArray as item) {
 		echo $row;
-	}
+	}*/
 }
 
 ?>
