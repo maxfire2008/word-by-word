@@ -4,7 +4,7 @@ require 'conn.php';
 
 ob_start();
 
-//header("HTTP/1.1 204 NO CONTENT");
+header("HTTP/1.1 204 NO CONTENT");
 
 header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
 header("Pragma: no-cache"); // HTTP 1.0.
@@ -17,6 +17,7 @@ if (isset($_POST['userToken'])) {
 	$result = $mysqli->query($sql);
 	$resultArray = $result->fetch_assoc();
 	setcookie("user_token",$_POST['userToken']);
+	console.log($resultArray);
 	foreach ($row as $resultArray) {
 		echo $row;
 	}
