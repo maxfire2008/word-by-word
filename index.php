@@ -18,8 +18,8 @@
 						<h1>My Stories</h1>
 					</div>';
 			} else {
-				echo '<div class="container" action="/signin.php" method="post">
-						<form class="px-4 py-3">
+				echo '<div class="container">
+						<form class="px-4 py-3" action="/signin.php" method="post">
 							<div class="input-group mb-3">
 								<input type="text" class="form-control" id="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1"><br>
 								<button type="submit" class="btn btn-primary">Submit</button>
