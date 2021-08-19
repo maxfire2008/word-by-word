@@ -22,7 +22,7 @@
 						<form class="px-4 py-3">
 							<div class="input-group mb-3">
 								<input type="text" class="form-control" id="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1"><br>
-								<input type="submit">
+								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</form>
 					</div>';
