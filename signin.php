@@ -17,8 +17,8 @@ if (isset($_POST['userToken'])) {
 	$result = $mysqli->query($sql);
 	$resultArray = $result->fetch_assoc();
 	setcookie("user_token",$_POST['userToken']);
-	console.log($resultArray);
-	foreach ($row as $resultArray) {
+	console.log(implode(" ",$resultArray));
+	foreach ($resultArray as item) {
 		echo $row;
 	}
 }
