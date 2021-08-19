@@ -18,10 +18,12 @@
 						<h1>My Stories</h1>
 					</div>';
 			} else {
-				echo '<div class="container">
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1">
-						</div>
+				echo '<div class="container" method="post">
+						<form class="px-4 py-3">
+							<div class="input-group mb-3">
+								<input type="text" class="form-control" id="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1">
+							</div>
+						</form>
 					</div>';
 			}
 		?>
