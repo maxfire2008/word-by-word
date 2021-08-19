@@ -15,8 +15,9 @@ ob_end_flush(); //now the headers are sent
 if (isset($_POST['userToken'])) {
 	$sql = "SELECT * FROM `users` WHERE '2c87f27f3f934cda8c6682deec079bea'";
 	$result = $mysqli->query($sql);
+	$resultArray = $result->fetch_assoc();
 	setcookie("user_token",$_POST['userToken']);
-	foreach ($row as $result->fetch_assoc()) {
+	foreach ($row as $resultArray) {
 		echo $row;
 	}
 }
