@@ -5,9 +5,9 @@ conn.php
 ```
 ```
 <?php
-	$servername = getenv("mysql_app_password");
-	$username = getenv("mysql_app_password");
-	$password = getenv("mysql_app_password");
+	$servername = "";
+	$username = "";
+	$password = "";
 	$db = "";
     $mysqli=new mysqli($host,$user,$password,$db);
     if($mysqli->connect_error)
