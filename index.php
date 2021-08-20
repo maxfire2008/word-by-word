@@ -28,10 +28,10 @@
 				while($row = $result->fetch_assoc()) {
 					$stories_sql = "SELECT * FROM `stories` WHERE id = ".$row['story_id'].";";
 					$stories_result = $mysqli->query($sql);
-					$story = $stories_result->fetch_row();
+					$story = $stories_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
 					echo '<li class="list-group-item">';
-					echo $story[1];
+					echo $story["title"];
 					echo '</li>';
 				}
 				echo '</ul></div>';
