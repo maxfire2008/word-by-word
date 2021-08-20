@@ -32,6 +32,7 @@
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
 					echo '<li class="list-group-item">';
 					echo implode(", ",$story);
+					echo $sanitised_title;
 					echo '</li>';
 				}
 				echo '</ul></div>';
