@@ -1,5 +1,6 @@
 <?php
 	require 'conn.php';
+	require 'navbar.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,6 +9,9 @@
 		<title>Word by Word</title>
 	</head>
 	<body>
+		<?php
+			navbar();
+		?>
 		<div class="jumbotron text-center">
 			<h1>Word by Word</h1>
 			<p>A social experiment where a story is built one word at a time.</p> 
