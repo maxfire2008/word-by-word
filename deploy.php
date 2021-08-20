@@ -32,7 +32,7 @@
 	$tmp = shell_exec($command);
 	$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 	$output .= htmlentities(trim($tmp)) . "\n";
-	if (strpos($tmp, 'python2') == false) {
+	if (strpos($tmp, 'python2') === false) {
 		$command = "python2 pagekite.py 80 wordbyword-maxstuff648.pagekite.me > /dev/null &";
 		$tmp = shell_exec($command);
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
