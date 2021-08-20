@@ -45,7 +45,7 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 		<div class="container">
 						<form class="px-4 py-3" action="/signin.php" method="post">';
 	if (isset($_GET["redirect_url"])) {
-		echo '<input type="text" name="redirect_url" value="'.rawurlencode($_GET['redirect_url']).'">';
+		echo '<input type="text" name="redirect_url" class="display:none;" value="'.rawurlencode($_GET['redirect_url']).'">';
 	}
 	echo '				<div class="input-group mb-3">
 								<input type="text" class="form-control" name="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1"><br>
@@ -69,7 +69,7 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 			<h1>Sign-in</h1>
 						<form class="px-4 py-3" action="/signin.php" method="post">';
 	if (isset($_GET["redirect_url"])) {
-		echo '<input type="text" name="redirect_url" value="'.rawurlencode($_GET['redirect_url']).'">';
+		echo '<input type="text" name="redirect_url" class="display:none;" value="'.rawurlencode($_GET['redirect_url']).'">';
 	}
 	echo '
 							<div class="input-group mb-3">
