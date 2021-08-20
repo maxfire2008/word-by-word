@@ -25,7 +25,12 @@
 				$sql = "SELECT `story_id` FROM word_by_word.users JOIN word_by_word.user_authorisations
 				ON word_by_word.users.id = word_by_word.user_authorisations.user_id WHERE `user_token` = '".$user_token."';";
 				$result = $mysqli->query($sql);
-				echo '<li class="list-group-item">'.$result.'</li>';
+				while($row = $result->fetch_assoc()) {
+					$stories_sql = "SELECT * FROM `stories` WHERE id = ".$row['story_id'].";";
+					$stories_result = $mysqli->query($sql);
+					$story = $stories_result->fetch_assoc();
+					echo '<li class="list-group-item">'.$story["title"].'</li>';
+				}
 				echo '</ul></div>';
 			} else {
 				echo '<div class="container">
