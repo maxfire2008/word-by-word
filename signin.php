@@ -5,16 +5,7 @@ require 'navbar.php';
 require 'htmlredirect.php';
 
 if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
-	if (isset($_POST['userToken'])) {
-		$user_token = mysqli_real_escape_string($mysqli,$_POST['userToken']);
-	} else {
-		$user_token = mysqli_real_escape_string($mysqli,$_GET['userToken']);
-	}
-	$sql = "SELECT `user_token` FROM `users` WHERE `user_token` = '".$user_token."';";
-	$result = $mysqli->query($sql);
-	$rowcount = $result->num_rows;
-	if ($rowcount) {
-		setcookie("user_token",$user_token);
+	if (isset($_COOKIE['user_token'])) {
 		if (isset($_POST["redirect_url"])) {
 			htmlRedirect(rawurldecode($_POST["redirect_url"]));
 		} else if (isset($_GET["redirect_url"])) {
@@ -23,15 +14,43 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 			htmlRedirect("/");
 		}
 	} else {
-		if (isset($_POST["redirect_url"])) {
-			htmlRedirect("/signin.php?failure=yes&redirect_url=".$_POST["redirect_url"]);
-		} else if (isset($_GET["redirect_url"])) {
-			htmlRedirect("/signin.php?failure=yes&redirect_url=".$_GET["redirect_url"]);
+		if (isset($_POST['userToken'])) {
+			$user_token = mysqli_real_escape_string($mysqli,$_POST['userToken']);
 		} else {
-			htmlRedirect("/signin.php?failure=yes");
+			$user_token = mysqli_real_escape_string($mysqli,$_GET['userToken']);
+		}
+		$sql = "SELECT `user_token` FROM `users` WHERE `user_token` = '".$user_token."';";
+		$result = $mysqli->query($sql);
+		$rowcount = $result->num_rows;
+		if ($rowcount) {
+			setcookie("user_token",$user_token);
+			if (isset($_POST["redirect_url"])) {
+				htmlRedirect(rawurldecode($_POST["redirect_url"]));
+			} else if (isset($_GET["redirect_url"])) {
+				htmlRedirect(rawurldecode($_GET["redirect_url"]));
+			} else {
+				htmlRedirect("/");
+			}
+		} else {
+			if (isset($_POST["redirect_url"])) {
+				htmlRedirect("/signin.php?failure=yes&redirect_url=".$_POST["redirect_url"]);
+			} else if (isset($_GET["redirect_url"])) {
+				htmlRedirect("/signin.php?failure=yes&redirect_url=".$_GET["redirect_url"]);
+			} else {
+				htmlRedirect("/signin.php?failure=yes");
+			}
 		}
 	}
 } else if (isset($_GET['failure'])) {
+	if (isset($_COOKIE['user_token'])) {
+		if (isset($_POST["redirect_url"])) {
+			htmlRedirect(rawurldecode($_POST["redirect_url"]));
+		} else if (isset($_GET["redirect_url"])) {
+			htmlRedirect(rawurldecode($_GET["redirect_url"]));
+		} else {
+			htmlRedirect("/");
+		}
+	} else {
 	echo '<!DOCTYPE html>
 <html>
 	<head>
@@ -61,7 +80,17 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	</body>
 </html>';
+	}
 } else {
+	if (isset($_COOKIE['user_token'])) {
+		if (isset($_POST["redirect_url"])) {
+			htmlRedirect(rawurldecode($_POST["redirect_url"]));
+		} else if (isset($_GET["redirect_url"])) {
+			htmlRedirect(rawurldecode($_GET["redirect_url"]));
+		} else {
+			htmlRedirect("/");
+		}
+	} else {
 	echo '<!DOCTYPE html>
 <html>
 	<head>
@@ -88,5 +117,6 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	</body>
 </html>';
+}
 }
 ?>
