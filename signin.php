@@ -9,9 +9,9 @@ if (isset($_POST['userToken'])) {
 	$rowcount = $result->num_rows;
 	if ($rowcount) {
 		setcookie("user_token",$_POST['userToken']);
-		var_dump(http_response_code(205));
+		http_response_code(205);
 	} else {
-		var_dump(http_response_code(403));
+		http_response_code(403);
 	}
 }
 ?>
