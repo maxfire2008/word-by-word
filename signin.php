@@ -38,6 +38,9 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 		<title>Sign-in</title>
 	</head>
 	<body>
+		';
+		navbar();
+		echo '
 		<div class="jumbotron text-center">
 			<h1>Sign-in</h1>
 			<p>Sign-in failed try again.</p> 
@@ -64,7 +67,9 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<title>Sign-in</title>
 	</head>
-	<body>
+	<body>';
+		navbar();
+		echo '
 		<div class="jumbotron text-center">
 			<h1>Sign-in</h1>
 						<form class="px-4 py-3" action="/signin.php" method="post">';
