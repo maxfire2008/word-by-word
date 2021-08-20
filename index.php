@@ -31,9 +31,7 @@
 					$story = $stories_result->fetch_row();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
 					echo '<li class="list-group-item">';
-					echo implode(", ",$story);
-					echo $sanitised_title;
-					echo $story["title"];
+					echo $story[1];
 					echo '</li>';
 				}
 				echo '</ul></div>';
