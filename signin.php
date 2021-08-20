@@ -2,7 +2,7 @@
 
 require 'conn.php';
 
-header("HTTP/1.1 205 REFRESH CONTENT");
+header("HTTP/1.1 205");
 
 if (isset($_POST['userToken'])) {
 	$user_token = mysqli_real_escape_string($mysqli,$_POST['userToken']);
