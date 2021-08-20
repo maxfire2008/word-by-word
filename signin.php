@@ -16,7 +16,7 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 		setcookie("user_token",$_POST['userToken']);
 		htmlRedirect("/");
 	} else {
-		htmlRedirect("/signin.php");
+		htmlRedirect("/signin.php?failure=yes");
 	}
 } else if (isset($_GET['failure'])) {
 	echo '<!DOCTYPE html>
