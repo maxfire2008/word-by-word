@@ -20,7 +20,9 @@
 			if (isset($_COOKIE['user_token'])) {
 				echo '<div class="container">
 						<h1>My Stories</h1>
-					</div>';
+						<ul class="list-group">';
+				echo '<li class="list-group-item">Cras justo odio</li>';
+				echo '</ul></div>';
 			} else {
 				echo '<div class="container">
 						<form class="px-4 py-3" action="/signin.php" method="post">
