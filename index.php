@@ -21,7 +21,11 @@
 				echo '<div class="container">
 						<h1>My Stories</h1>
 						<ul class="list-group">';
-				echo '<li class="list-group-item">Cras justo odio</li>';
+				$user_token = mysqli_real_escape_string($mysqli,$_COOKIE['user_token']);
+				$sql = "SELECT `story_id` FROM word_by_word.users JOIN word_by_word.user_authorisations
+				ON word_by_word.users.id = word_by_word.user_authorisations.user_id WHERE `user_token` = '".$user_token."';";
+				$result = $mysqli->query($sql);
+				echo '<li class="list-group-item">'.$result.'</li>';
 				echo '</ul></div>';
 			} else {
 				echo '<div class="container">
