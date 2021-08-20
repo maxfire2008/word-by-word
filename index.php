@@ -29,7 +29,7 @@
 					$stories_sql = "SELECT * FROM `stories` WHERE id = ".$row['story_id'].";";
 					$stories_result = $mysqli->query($sql);
 					$story = $stories_result->fetch_assoc();
-					echo '<li class="list-group-item">'.$story["title"].'</li>';
+					echo '<li class="list-group-item">'.$story["title"].$row['story_id'].'</li>';
 				}
 				echo '</ul></div>';
 			} else {
