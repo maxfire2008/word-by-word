@@ -13,7 +13,7 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 	$result = $mysqli->query($sql);
 	$rowcount = $result->num_rows;
 	if ($rowcount) {
-		setcookie("user_token",$_POST['userToken']);
+		setcookie("user_token",$user_token);
 		htmlRedirect("/");
 	} else {
 		htmlRedirect("/signin.php?failure=yes");
