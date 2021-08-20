@@ -12,7 +12,7 @@ if (isset($_POST['userToken'])) {
 	echo mysqli_real_escape_string($_POST['userToken']);echo "\n";
 	echo $sql;echo "\n";
 	echo $result;
-	echo "-->"
+	echo "-->";
 	if ($rowcount) {
 		setcookie("user_token",$_POST['userToken']);
 	}
