@@ -29,8 +29,17 @@
 					$stories_sql = "SELECT * FROM `stories` WHERE id = ".$row['story_id'].";";
 					$stories_result = $mysqli->query($stories_sql);
 					$story = $stories_result->fetch_assoc();
+					$ready_sql = "SELECT word_by_word.words.* FROM word_by_word.words JOIN word_by_word.users
+ON word_by_word.users.id = word_by_word.words.user_id WHERE `user_token` = '2c87f27f3f934cda8c6682deec079bea'
+AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
+					$ready_result = $mysqli->query($ready_sql);
+					$ready = $ready_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
-					echo '<li class="list-group-item">';
+					if ($ready_sql) {
+						echo '<li class="list-group-item" style="background-color:yellow">';
+					} else {
+						echo '<li class="list-group-item">';
+					}
 					echo $sanitised_title;
 					echo '</li>';
 				}
