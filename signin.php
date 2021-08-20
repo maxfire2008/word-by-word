@@ -1,6 +1,7 @@
 <?php
 
 require 'conn.php';
+require 'htmlredirect.php';
 
 if (isset($_POST['userToken'])) {
 	$user_token = mysqli_real_escape_string($mysqli,$_POST['userToken']);
@@ -9,7 +10,7 @@ if (isset($_POST['userToken'])) {
 	$rowcount = $result->num_rows;
 	if ($rowcount) {
 		setcookie("user_token",$_POST['userToken']);
-		http_response_code(205);
+		htmlredirect("/");
 	} else {
 		http_response_code(403);
 	}
