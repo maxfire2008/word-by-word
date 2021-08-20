@@ -1,6 +1,6 @@
 <?php
 	function htmlRedirect($url) {
-		echo('<!DOCTYPE HTML>
+		echo '<!DOCTYPE HTML>
 <html lang="en-US">
     <head>
         <meta charset="UTF-8">
