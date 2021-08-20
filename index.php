@@ -30,7 +30,10 @@
 					$stories_result = $mysqli->query($sql);
 					$story = $stories_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
-					echo '<li class="list-group-item">'.implode(", ",$story).'</li>';
+					echo '<li class="list-group-item">';
+					echo implode(", ",$story);
+					echo $stories_sql;
+					echo '</li>';
 				}
 				echo '</ul></div>';
 			} else {
