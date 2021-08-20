@@ -14,9 +14,21 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 	$rowcount = $result->num_rows;
 	if ($rowcount) {
 		setcookie("user_token",$user_token);
-		htmlRedirect("/");
+		if (isset($_POST["redirect_url"])) {
+			htmlRedirect(urlencode($_POST["redirect_url"]));
+		} else if (isset($_GET["redirect_url"])) {
+			htmlRedirect(urlencode($_GET["redirect_url"]));
+		} else {
+			htmlRedirect("/");
+		}
 	} else {
-		htmlRedirect("/signin.php?failure=yes");
+		if (isset($_POST["redirect_url"])) {
+			htmlRedirect("/signin.php?failure=yes&redirect_url=".urlencode($_POST["redirect_url"]));
+		} else if (isset($_GET["redirect_url"])) {
+			htmlRedirect("/signin.php?failure=yes&redirect_url=".urlencode($_GET["redirect_url"]));
+		} else {
+			htmlRedirect("/signin.php?failure=yes");
+		}
 	}
 } else if (isset($_GET['failure'])) {
 	echo '<!DOCTYPE html>
@@ -31,8 +43,11 @@ if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
 			<p>Sign-in failed try again.</p> 
 		</div>
 		<div class="container">
-						<form class="px-4 py-3" action="/signin.php" method="post">
-							<div class="input-group mb-3">
+						<form class="px-4 py-3" action="/signin.php" method="post">';
+	if (isset($_GET["redirect_url"])) {
+		echo '<input type="text" name="redirect_url" value="'.$_GET['redirect_url'].'">';
+	}
+	echo '				<div class="input-group mb-3">
 								<input type="text" class="form-control" name="userToken" placeholder="User Token" aria-label="User Token" aria-describedby="basic-addon1"><br>
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
