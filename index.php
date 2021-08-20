@@ -31,7 +31,7 @@
 					$story = $stories_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
 					echo '<li class="list-group-item">';
-					echo $story["title"];
+					echo $sanitised_title;
 					echo '</li>';
 				}
 				echo '</ul></div>';
