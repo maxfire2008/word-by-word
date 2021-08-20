@@ -1,6 +1,7 @@
 <?php
 
 require 'conn.php';
+require 'navbar.php';
 require 'htmlredirect.php';
 
 if (isset($_POST['userToken']) or isset($_GET['userToken'])) {
