@@ -27,7 +27,21 @@
 		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
 		$output .= htmlentities(trim($tmp)) . "\n";
 	}
-
+	
+	$command = "ps aux | grep pagekite.py";
+	$tmp = shell_exec($command);
+	$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
+	$output .= htmlentities(trim($tmp)) . "\n";
+	if (strpos($tmp, 'python2') !== false) {
+		$command = "python2 pagekite.py 80 wordbyword-maxstuff648.pagekite.me > /var/log/pagekite.log &";
+		$tmp = shell_exec($command);
+		$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
+		$output .= htmlentities(trim($tmp)) . "\n";
+	}
+	$command = "cat /var/log/pagekite.log";
+	$tmp = shell_exec($command);
+	$output .= "<span style=\"color: #6BE234;\">\$</span> <span style=\"color: #729FCF;\">{$command}\n</span>";
+	$output .= htmlentities(trim($tmp)) . "\n";
 	// Make it pretty for manual user access (and why not?)
 ?>
 <!DOCTYPE HTML>
