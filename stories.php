@@ -1,6 +1,7 @@
 <?php
 	require 'conn.php';
 	require 'navbar.php';
+	require 'htmlredirect.php';
 ?>
 <!DOCTYPE html>
 <html>
