@@ -1,9 +1,9 @@
 <?php
 	function navbar($signedin=False) {
 		if ($signedin) {
-			$disabledtext = " disabled";
-		} else {
 			$disabledtext = "";
+		} else {
+			$disabledtext = " disabled";
 		}
 		echo '<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Word by Word</a>
