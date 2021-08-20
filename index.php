@@ -33,6 +33,7 @@
 					echo '<li class="list-group-item">';
 					echo implode(", ",$story);
 					echo $sanitised_title;
+					echo $story["title"];
 					echo '</li>';
 				}
 				echo '</ul></div>';
