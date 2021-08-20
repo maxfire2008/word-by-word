@@ -17,13 +17,13 @@
         <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link$disabledtext" href="/waitingwords">Waiting Words</a>
+        <a class="nav-link'.$disabledtext.'" href="/waitingwords">Waiting Words</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link$disabledtext" href="/stories">Stories</a>
+        <a class="nav-link'.$disabledtext.'" href="/stories">Stories</a>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link$disabledtext" href="/settings">Settings</a>
+        <a class="nav-link'.$disabledtext.'" href="/settings">Settings</a>
       </li>
     </ul>
   </div>
