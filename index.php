@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<?php
-			navbar();
+			navbar(isset($_COOKIE['user_token']));
 		?>
 		<div class="jumbotron text-center">
 			<h1>Word by Word</h1>
