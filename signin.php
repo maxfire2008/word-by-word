@@ -10,7 +10,7 @@ if (isset($_POST['userToken'])) {
 	$rowcount = $result->num_rows;
 	if ($rowcount) {
 		setcookie("user_token",$_POST['userToken']);
-		htmlredirect("/");
+		htmlRedirect("/");
 	} else {
 		http_response_code(403);
 	}
