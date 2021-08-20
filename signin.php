@@ -7,7 +7,8 @@ header("HTTP/1.1 205 REFRESH CONTENT");
 if (isset($_POST['userToken'])) {
 	$sql = "SELECT `user_token` FROM `users` WHERE `user_token` = '".mysqli_real_escape_string($_POST['userToken'])."'";
 	$result = $mysqli->query($sql);
-	if (result->num_rows) {
+	$rowcount = $result->num_rows;
+	if ($rowcount) {
 		setcookie("user_token",$_POST['userToken']);
 	}
 }
