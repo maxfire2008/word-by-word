@@ -2,8 +2,6 @@
 
 require 'conn.php';
 
-header("HTTP/1.1 205");
-
 if (isset($_POST['userToken'])) {
 	$user_token = mysqli_real_escape_string($mysqli,$_POST['userToken']);
 	$sql = "SELECT `user_token` FROM `users` WHERE `user_token` = '".$user_token."';";
@@ -11,6 +9,9 @@ if (isset($_POST['userToken'])) {
 	$rowcount = $result->num_rows;
 	if ($rowcount) {
 		setcookie("user_token",$_POST['userToken']);
+		var_dump(http_response_code(205));
+	} else {
+		var_dump(http_response_code(403));
 	}
 }
 ?>
