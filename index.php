@@ -35,8 +35,9 @@ AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 					$ready_result = $mysqli->query($ready_sql);
 					$ready = $ready_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
+					echo '<style>@keyframes blink { 0%{ color:red; } 100%{ color:green; } }</style>';
 					if ($ready_sql) {
-						echo '<li class="list-group-item" style="background-color:yellow">';
+						echo '<li class="list-group-item" style="animation: blink 1s infinite;">';
 					} else {
 						echo '<li class="list-group-item">';
 					}
