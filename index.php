@@ -18,6 +18,7 @@
 		</div>
 		<?php
 			if (isset($_COOKIE['user_token'])) {
+				echo '<style>@keyframes blink { 0%{ background-color:yellow; } 50%{ background-color:white; } 100%{ background-color:yellow; } }</style>';
 				echo '<div class="container">
 						<h1>My Stories</h1>
 						<ul class="list-group">';
@@ -35,9 +36,8 @@ AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 					$ready_result = $mysqli->query($ready_sql);
 					$ready = $ready_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
-					echo '<style>@keyframes blink { 0%{ background-color:yellow; } 50%{ background-color:white; } 100%{ background-color:yellow; } }</style>';
 					if ($ready_sql) {
-						echo '<li class="list-group-item" style="animation: blink 2s infinite;">';
+						echo '<li class="list-group-item" style="animation: blink 1s infinite;">';
 					} else {
 						echo '<li class="list-group-item">';
 					}
