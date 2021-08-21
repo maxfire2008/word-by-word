@@ -32,7 +32,7 @@ ON word_by_word.users.id = word_by_word.words.user_id WHERE `user_token` = '2c87
 AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 					$ready_result = $mysqli->query($ready_sql);
 					$ready = $ready_result->fetch_assoc();
-					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
+					$sanitised_title = $story["title"];
 					if ($ready_sql) {
 						echo '<li class="list-group-item" style="animation: blink 1s infinite;">';
 					} else {

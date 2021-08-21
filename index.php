@@ -35,14 +35,21 @@ ON word_by_word.users.id = word_by_word.words.user_id WHERE `user_token` = '2c87
 AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 					$ready_result = $mysqli->query($ready_sql);
 					$ready = $ready_result->fetch_assoc();
-					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
+					$sanitised_title = $story["title"];
 					echo '<a href="/story.php?story='.$row['story_id'].'">';
 					if ($ready_sql) {
 						echo '<li class="list-group-item" style="animation: blink 1s infinite;">';
 					} else {
 						echo '<li class="list-group-item">';
 					}
+					echo '<div>';
 					echo $sanitised_title;
+					echo '</div>';
+					echo '<form action="/storyupdate.php" method="POST" id="'.$row['story_id'].'"><div>';
+					echo 'Assignable <input type="checkbox" id="assignable'.$row['story_id'].'" onclick="form'.$row['story_id'].'.submit()" checked>';
+					echo '</div><div>';
+					
+					echo '</div></form>';
 					echo '</li>';
 					echo '</a>';
 				}
