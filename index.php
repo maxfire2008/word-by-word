@@ -36,6 +36,7 @@ AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 					$ready_result = $mysqli->query($ready_sql);
 					$ready = $ready_result->fetch_assoc();
 					$sanitised_title = filter_var($story["title"], FILTER_SANITIZE_STRING);
+					echo '<a href="/story.php?story='.$row['story_id'].'">';
 					if ($ready_sql) {
 						echo '<li class="list-group-item" style="animation: blink 1s infinite;">';
 					} else {
@@ -43,6 +44,7 @@ AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 					}
 					echo $sanitised_title;
 					echo '</li>';
+					echo '</a>';
 				}
 				echo '</ul></div>';
 			} else {
