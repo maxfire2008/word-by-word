@@ -14,7 +14,7 @@
 			navbar(isset($_COOKIE['user_token']));
 		?>
 		<div class="jumbotron text-center">
-			<h1>Word by Word</h1>
+			<h1>Word by Wrd</h1>
 			<p>A social experiment where a story is built one word at a time.</p> 
 		</div>
 		<?php
