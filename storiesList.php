@@ -1,6 +1,6 @@
 <?php
-	require 'conn.php';
 	function storiesList() {
+		require 'conn.php';
 		echo '<style>@keyframes blink { 0%{ background-color:yellow; } 50%{ background-color:white; } 100%{ background-color:yellow; } }</style>';
 		echo '<div class="container">
 				<h1>My Stories</h1>
