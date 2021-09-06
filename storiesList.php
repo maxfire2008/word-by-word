@@ -19,22 +19,22 @@ AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 			$ready_result = $mysqli->query($ready_sql);
 			$ready = $ready_result->fetch_assoc();
 			$sanitised_title = $story["title"];
-			echo '<a href="/story.php?story='.$row['story_id'].'">';
 			if ($ready_sql) {
 				echo '<li class="list-group-item" style="animation: blink 1s infinite;">';
 			} else {
 				echo '<li class="list-group-item">';
 			}
+			echo '<a href="/story.php?story='.$row['story_id'].'">';
 			echo '<div>';
 			echo $sanitised_title;
 			echo '</div>';
+			echo '</a>';
 			echo '<form action="/storyupdate.php" method="POST" id="'.$row['story_id'].'"><div>';
 			echo 'Assignable <input type="checkbox" id="assignable'.$row['story_id'].'" onclick="form'.$row['story_id'].'.submit()" checked>';
 			echo '</div><div>';
 			
 			echo '</div></form>';
 			echo '</li>';
-			echo '</a>';
 		}
 		echo '</ul></div>';
 	}
