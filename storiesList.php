@@ -29,7 +29,7 @@ AND `text` IS NULL AND `story_id` = ".$row['story_id'].";";
 			echo $sanitised_title;
 			echo '</div>';
 			echo '</a>';
-			echo '<form action="/storyupdate.php" method="POST" id="'.$row['story_id'].'"><div>';
+			echo '<form action="/storyupdate.php" method="POST" id="form'.$row['story_id'].'"><div>';
 			echo 'Assignable <input type="checkbox" id="assignable'.$row['story_id'].'" onclick="form'.$row['story_id'].'.submit()" checked>';
 			echo '</div><div>';
 			
