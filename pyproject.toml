@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "word-by-word"
+version = "0.1.0"
+description = ""
+authors = ["maxfire2008 <22722054+maxfire2008@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "word_by_word"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.3.2"
+flask-sqlalchemy = "^3.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
