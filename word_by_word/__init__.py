@@ -13,6 +13,6 @@ def create_app():
     database_controller.db.init_app(app)
     database_controller.migrate.init_app(app, database_controller.db)
 
-    app.register_blueprint(routes.index)
+    app.register_blueprint(routes.app)
 
     return app

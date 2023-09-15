@@ -10,5 +10,13 @@
             WBW is a simple game where the internet comes together to write a
             story.
         </p>
+        {% if user_id %}
+            <form action='{{ url_for("app.submit_word") }}' method="post">
+                <input name="csrf_token" value="{{ csrf_token }}">
+                <input name="last_word_id" value="{{ last_word_id }}">
+                <input name="next_word">
+                <input type="submit">
+            </form>
+        {% endif %}
     </body>
 </html>

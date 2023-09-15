@@ -6,4 +6,4 @@ poetry run python3 -m flask db init
 poetry run python3 -m flask db migrate
 poetry run python3 -m flask db upgrade
 
-poetry run python3 -m flask run
+poetry run python3 -m flask run --debug
